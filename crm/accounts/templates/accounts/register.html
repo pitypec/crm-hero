@@ -19,8 +19,9 @@
           </div>
           {% for message in messages %}
           <p>{{message}}</p>
-          {% endfor %} {% if form.errors %} {% for field in form %} {% for error
-          in field.errors %}
+          {% endfor %} {% if form.errors %}
+          <br />
+          {% for field in form %} {% for error in field.errors %}
           <div class="alert alert-danger">
             <strong>{{ error|escape }}</strong>
           </div>
