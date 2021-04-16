@@ -11,7 +11,7 @@
         <form action="" method="POST">
           {% csrf_token%}
           <div class="mb-3">{{form.username.label}} {{form.username}}</div>
-          <div class="mb-3">{{form.email.label.}} {{form.email}}</div>
+          <div class="mb-3">{{form.email.label}} {{form.email}}</div>
           <div class="mb-3">{{form.password1.label}} {{form.password1}}</div>
           <div class="mb-3">{{form.password2.label}} {{form.password2}}</div>
           <div class="text-right">
