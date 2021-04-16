@@ -1,4 +1,5 @@
-from django.http.response import Http404
+
+from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import inlineformset_factory
@@ -23,7 +24,7 @@ def registerPage(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
+            username = get_object_or_404('username')
             messages.success(request, f"Registration for {username} successful")
             return redirect('login')
     context = {
