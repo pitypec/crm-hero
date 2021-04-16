@@ -23,8 +23,8 @@ def registerPage(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            username = get_object_or_404('username')
+            user = form.save()
+            username = get_object_or_404(user, 'username')
             messages.success(request, f"Registration for {username} successful")
             return redirect('login')
     context = {
