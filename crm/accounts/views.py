@@ -22,12 +22,8 @@ def registerPage(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            try:
-               username = form.cleaned_data.get('username')
-            except User.DoesNotExist:
-                raise Http404
-
+            form.save()
+            username = form.cleaned_data.get('username')
             messages.success(request, f"Registration for {username} successful")
             return redirect('login')
     context = {
